@@ -1,40 +1,128 @@
-<<<<<<< HEAD
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Movie Insight Builder
 
-## Getting Started
+## Overview
 
-First, run the development server:
+AI Movie Insight Builder is a full-stack web application where users can enter an **IMDb Movie ID** (for example `tt0133093`).
+The application fetches movie details, retrieves audience reviews, and generates an **AI-powered sentiment summary** of audience reactions.
 
-```bash
+The goal of this project is to combine **movie APIs, full-stack development, and AI analysis** into a simple, user-friendly interface.
+# Features
+
+ 1. Movie Search
+
+Users can enter an **IMDb Movie ID** to fetch movie details.
+
+ 2. Movie Information
+
+The application displays:
+
+* Movie title
+* Poster
+* Release year
+* IMDb rating
+* Cast list
+* Plot summary
+
+ 3. Audience Reviews
+
+The system retrieves audience reviews using the **TMDB API**.
+
+ 4. AI Sentiment Analysis
+
+The reviews are analyzed using an **AI model** to generate:
+
+* A short audience sentiment summary
+* Overall sentiment classification (Positive / Mixed / Negative)
+
+ 5. Error Handling
+
+The system handles:
+
+* Invalid IMDb IDs
+* Missing reviews
+* AI API quota limits
+
+Fallback responses ensure the application still works smoothly.
+# Tech Stack
+
+## Frontend
+
+* **Next.js**
+* **React**
+* **Tailwind CSS**
+
+## Backend
+
+* **Next.js API Routes**
+
+## APIs Used
+
+* **OMDb API** – for movie metadata
+* **TMDB API** – for audience reviews
+* **OpenAI API** – for AI sentiment analysis
+# Project Architecture
+
+User enters IMDb ID
+↓
+Next.js API Route processes request
+↓
+Fetch movie data from **OMDb API**
+↓
+Convert IMDb ID → TMDB ID
+↓
+Fetch reviews from **TMDB API**
+↓
+Send reviews to **AI model**
+↓
+Return summary + sentiment to frontend
+
+# Setup Instructions
+
+1. Clone the repository
+
+bash
+git clone https://github.com/yourusername/ai-movie-insight-builder.git
+cd ai-movie-insight-builder
+
+
+2. Install dependencies
+
+bash
+npm install
+
+
+3. Add environment variables
+
+Create a `.env.local` file in the project root.
+
+OMDB_API_KEY=your_omdb_api_key
+TMDB_API_KEY=your_tmdb_api_key
+OPENAI_API_KEY=your_openai_api_key
+
+4. Run the development server
+:-bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open the app in your browser:
+http://localhost:3000
+# Deployment
+The application can be deployed easily using **Vercel**.
+Steps:
+1. Push project to GitHub
+2. Import repository into Vercel
+3. Add environment variables
+4. Deploy
+# Assumptions
+* Users provide valid IMDb movie IDs.
+* TMDB may not always provide reviews for every movie.
+* In cases where reviews are unavailable, fallback review text is used to ensure AI analysis continues to function.
+* If the AI API quota is exceeded, a fallback sentiment summary is provided.
+# Future Improvements
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+* Search movies by title instead of IMDb ID
+* Add pagination for reviews
+* Improve UI animations and responsiveness
+* Store review sentiment history
+* Add charts for audience sentiment distribution
+# Author
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-=======
-# Ai_movie_insights
->>>>>>> cba89cc3841d8937cb53bcaa4c5e8fc22a0963cc
+Abhishek Pandey
